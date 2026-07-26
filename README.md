@@ -4,9 +4,9 @@ TaskRunner helps you plan work, run focus sessions, and connect nearby computers
 
 [Visit the TaskRunner website](https://linedrawguy.github.io/task-runner/) or choose a release:
 
-- [Windows 10/11 x64 installer](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_x64-setup.exe)
-- [Linux x64 AppImage](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_amd64.AppImage)
-- [Linux x64 Debian package](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_amd64.deb)
+- [Windows 10/11 x64 installer](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_x64-setup.exe)
+- [Linux x64 AppImage](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_amd64.AppImage)
+- [Linux x64 Debian package](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_amd64.deb)
 
 ## About this repository
 
@@ -19,14 +19,14 @@ Windows and Linux packages are attached to GitHub Releases and are never committ
 AppImage:
 
 ```bash
-chmod +x TaskRunner_0.9.2_amd64.AppImage
-./TaskRunner_0.9.2_amd64.AppImage
+chmod +x TaskRunner_0.9.3_amd64.AppImage
+./TaskRunner_0.9.3_amd64.AppImage
 ```
 
 Debian, Ubuntu, Linux Mint, Pop!_OS, and related distributions:
 
 ```bash
-sudo apt install ./TaskRunner_0.9.2_amd64.deb
+sudo apt install ./TaskRunner_0.9.3_amd64.deb
 ```
 
 To use local rooms, keep the host app open, connect devices to the same local network, and allow TaskRunner through the Linux firewall if prompted.
