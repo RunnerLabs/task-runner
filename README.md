@@ -2,11 +2,11 @@
 
 TaskRunner helps you plan work, run focus sessions, and connect nearby computers through rooms on your local network. Native release packages are available for Windows and Linux x64.
 
-[Visit the TaskRunner website](https://linedrawguy.github.io/task-runner/) or choose a release:
+[Visit the TaskRunner website](https://trunninthisshit.github.io/task-runner/) or choose a release:
 
-- [Windows 10/11 x64 installer](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_x64-setup.exe)
-- [Linux x64 AppImage](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_amd64.AppImage)
-- [Linux x64 Debian package](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_amd64.deb)
+- [Windows 10/11 x64 installer](https://github.com/trunninthisshit/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_x64-setup.exe)
+- [Linux x64 AppImage](https://github.com/trunninthisshit/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_amd64.AppImage)
+- [Linux x64 Debian package](https://github.com/trunninthisshit/task-runner/releases/download/v0.9.3/TaskRunner_0.9.3_amd64.deb)
 
 ## About this repository
 
