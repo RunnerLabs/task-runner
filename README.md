@@ -1,13 +1,13 @@
 # TaskRunner
 
-TaskRunner helps you plan work, run focus sessions, and connect nearby computers through rooms on your local network. Native release packages are available for Windows and Linux x64.
+**Plan faster. Start on time. Stay local.** TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. Native release packages are available for Windows and Linux x64.
 
 [Visit the TaskRunner website](https://runnerlabs.github.io/task-runner/) or choose a release:
 
-- [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_x64-setup.exe)
-- [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_x64_en-US.msi)
-- [Linux x64 AppImage](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_amd64.AppImage)
-- [Linux x64 Debian package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_amd64.deb)
+- [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_x64-setup.exe)
+- [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_x64_en-US.msi)
+- [Linux x64 AppImage](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_amd64.AppImage)
+- [Linux x64 Debian package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_amd64.deb)
 
 ## About this repository
 
@@ -20,14 +20,14 @@ Windows and Linux packages are attached to GitHub Releases and are never committ
 AppImage:
 
 ```bash
-chmod +x TaskRunner_0.9.4_amd64.AppImage
-./TaskRunner_0.9.4_amd64.AppImage
+chmod +x TaskRunner_0.9.5_amd64.AppImage
+./TaskRunner_0.9.5_amd64.AppImage
 ```
 
 Debian, Ubuntu, Linux Mint, Pop!_OS, and related distributions:
 
 ```bash
-sudo apt install ./TaskRunner_0.9.4_amd64.deb
+sudo apt install ./TaskRunner_0.9.5_amd64.deb
 ```
 
 To use local rooms, keep the host app open, connect devices to the same local network, and allow TaskRunner through the Linux firewall if prompted.

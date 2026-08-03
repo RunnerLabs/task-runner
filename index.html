@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080a08">
-  <meta name="description" content="TaskRunner keeps planning simple: run tasks locally, share nearby, or scan a QR code to carry a live dashboard on your phone.">
-  <title>TaskRunner — Keep It Simple</title>
+  <meta name="description" content="Plan faster, start on time, and stay local with TaskRunner: batch-create tasks, schedule automatic starts, manage recurring work, share LAN rooms, and hand dashboards to a phone by QR.">
+  <title>TaskRunner - Plan Faster. Start on Time. Stay Local.</title>
   <link rel="icon" type="image/png" sizes="192x192" href="assets/taskrunner-icon-192.png">
   <link rel="apple-touch-icon" href="assets/taskrunner-icon-192.png">
   <style>
@@ -34,6 +34,12 @@
     h1{max-width:840px;margin:0;font-family:Futura,"Avenir Next","Century Gothic",Arial,sans-serif;font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.86;letter-spacing:-.045em}
     .lead{max-width:800px;margin:25px 0 0;color:var(--black);font-size:17px}
     .hero-actions{display:grid;gap:12px}
+    .hero-runner-mark{height:122px;display:grid;place-items:center;margin-bottom:2px;color:var(--black)}
+    .hero-runner-mark svg{width:138px;height:112px;overflow:visible;filter:drop-shadow(0 8px 0 rgba(8,10,8,.08))}
+    .hero-runner-mark .runner-silhouette{fill:currentColor;stroke:none}
+    .hero-runner-mark .runner-ghost-far{opacity:.18}
+    .hero-runner-mark .runner-ghost-near{opacity:.38}
+    .hero-runner-mark .runner-main{opacity:1}
     .strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-top:0}
     .strip article{min-height:142px;padding:22px;border-right:1px solid var(--line)}
     .strip article:last-child{border-right:0}
@@ -88,7 +94,7 @@
       .shell{width:100%;margin:0;border:0}.nav a:not(.button){display:none}header{height:66px}
       .ascii-mark{width:100%;height:auto;margin:22px 0 4px}
       main{padding:18px 12px}.hero{padding:24px}.hero-grid{grid-template-columns:1fr;gap:26px}
-      .hero-actions{grid-template-columns:1fr 1fr}.strip{grid-template-columns:1fr 1fr}.strip article{border-bottom:1px solid var(--line);min-height:auto}.strip article:nth-child(2n){border-right:0}.strip article:nth-last-child(-n+2){border-bottom:0}
+      .hero-actions{grid-template-columns:1fr 1fr}.hero-runner-mark{grid-column:1/-1;height:96px}.hero-runner-mark svg{width:112px;height:90px}.strip{grid-template-columns:1fr 1fr}.strip article{border-bottom:1px solid var(--line);min-height:auto}.strip article:nth-child(2n){border-right:0}.strip article:nth-last-child(-n+2){border-bottom:0}
       .downloads{margin:26px 10px 0}.downloads-head{align-items:flex-start;flex-direction:column}.platforms{grid-template-columns:1fr}.platform{border-right:0;border-bottom:1px solid var(--black)}.platform:last-child{border-bottom:0}
       .handoff{grid-template-columns:1fr;margin:26px 10px 0;padding:24px}.handoff-steps{grid-template-columns:1fr}.handoff-steps article{border-right:0;border-bottom:1px solid #315f35}.handoff-steps article:last-child{border-bottom:0}
       .guide{grid-template-columns:1fr;padding:28px 10px 20px}.tools{grid-template-columns:1fr}.tool,.tool:nth-child(2n),.tool:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.tool:last-child{border-bottom:0}
@@ -109,25 +115,38 @@
 
     <main id="top">
       <section class="hero">
-        <div class="terminal-row"><span>$ taskrunner --local</span><span class="status">v0.9.4 public beta</span></div>
+        <div class="terminal-row"><span>$ taskrunner --local</span><span class="status">v0.9.5 beta available</span></div>
         <img class="ascii-mark" src="https://runnerlabs.github.io/task-runner/assets/taskrunner-ascii.png" alt="TaskRunner line-art wordmark">
         <div class="hero-grid">
           <div>
-            <h1>Keep it<br>simple.</h1>
-            <p class="lead">Plan and run tasks on your computer, share dashboards across a private network, or scan a QR code to receive a self-contained mobile dashboard you can save and carry on the go.</p>
+            <h1>Plan faster.<br>Start on time.<br>Stay local.</h1>
+            <p class="lead">Create one task or ten, schedule work to start automatically, manage recurring plans, and run focused timers. Share private LAN rooms or hand a self-contained dashboard to a phone by QR - no cloud account required.</p>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="#downloads">Download beta</a>
+            <div class="hero-runner-mark" aria-hidden="true">
+              <svg viewBox="-125 -15 890 920" focusable="false">
+                <defs>
+                  <g id="hero-runner-source">
+                    <path d="M696.504,880.942C689.22,880.553 689.206,880.562 609.621,854.125C586.267,846.366 587.084,842.787 569.161,798.637C564.613,787.432 513.586,661.737 512.255,658.605C510.661,654.851 466.287,616.466 437.249,589.778C433.319,586.167 389.14,545.565 387.615,545.201C385.675,544.739 382.986,549.762 353.061,594.204C293.488,682.675 293.949,682.981 288.042,690.125C283.142,696.052 267.362,707.791 247.796,694.088C239.508,688.283 107.084,591.907 94.858,583.008C80.204,572.344 19.583,547.557 9.692,537.32C-10.058,516.877 11.756,477.467 44.42,492.664C55.757,497.939 110.675,525.749 116.42,528.658C126.997,534.014 126.555,534.723 236.771,615.128C257.336,630.13 257.521,631.447 259.293,630.197C260.047,629.665 259.936,629.534 302.904,565.773C345.566,502.465 348.328,499.962 349.258,494.469C350.462,487.36 408.004,285.486 387.674,270.387C395.296,252.094 210.382,449.251 201.714,444.868C187.152,437.504 177.108,426.766 186.179,415.418C227.767,363.387 334.162,237.152 352.004,218.856C380.239,189.904 379.165,191.82 407.241,175.955C409.047,174.935 482.186,186.76 495.7,210.387C502.405,222.108 508.544,224.834 528.923,247.091C532.782,251.304 532.904,251.125 578.568,298.433C582.116,302.108 581.682,297.871 585.606,294.589C624.872,261.75 715.401,163.309 724.424,166.93C750.165,177.259 746.598,190.293 729.493,211.732C729.366,211.892 604.924,341.146 604.383,341.732C590.376,356.877 570.812,356.459 556.93,342.632C528.475,314.291 491.437,298.484 485.66,292.345C484.339,290.941 482.916,288.588 481.764,292.586C477.81,306.316 420.851,488.808 421.3,490.56C421.675,492.025 518.624,578.656 541.477,599.526C561.151,617.493 562.773,616.674 569.943,634.323C629.778,781.597 629.489,781.629 634.946,794.321C636.289,797.443 636.967,797.21 674.455,809.632C709.075,821.102 721.199,822.418 726.56,843.487C728.288,850.278 727.532,878.382 696.504,880.942Z"/>
+                    <path d="M509.517,3.038C601.156,6.957 629.522,122.648 551.27,169.109C499.572,199.803 415.149,165.028 419.82,84.519C421.85,49.537 451.715,3.121 509.517,3.038Z"/>
+                  </g>
+                </defs>
+                <use href="#hero-runner-source" class="runner-silhouette runner-ghost-far" transform="translate(-112 0)"/>
+                <use href="#hero-runner-source" class="runner-silhouette runner-ghost-near" transform="translate(-56 0)"/>
+                <use href="#hero-runner-source" class="runner-silhouette runner-main"/>
+              </svg>
+            </div>
+            <a class="button primary" href="#downloads">Download current beta</a>
             <a class="button" href="#mobile">See phone handoff</a>
           </div>
         </div>
       </section>
 
       <section class="strip" aria-label="TaskRunner core features">
-        <article><span class="label">01 / Plan</span><h2>Run your day</h2><p>Organize projects, timers, breaks, priorities, and completion history in one focused desktop workspace.</p></article>
-        <article><span class="label">02 / Share</span><h2>Connect nearby</h2><p>Share task dashboards between computers on the same Wi-Fi or wired network without a cloud account.</p></article>
-        <article><span class="label">03 / Scan</span><h2>Open on phone</h2><p>Generate a personal QR code and scan it to receive a clean mobile dashboard in seconds.</p></article>
-        <article><span class="label">04 / Go</span><h2>Keep it with you</h2><p>Track tasks and timers on the move, then save or send a self-contained offline HTML copy.</p></article>
+        <article><span class="label">01 / Batch</span><h2>Build faster</h2><p>Create up to ten task drafts at once and copy selected details into new or existing task boxes.</p></article>
+        <article><span class="label">02 / Schedule</span><h2>Start on time</h2><p>Set fixed start times, organize recurring calendar work, and let desktop or mobile begin automatically.</p></article>
+        <article><span class="label">03 / Share</span><h2>Connect nearby</h2><p>Share task dashboards between computers on the same Wi-Fi or wired network without a cloud account.</p></article>
+        <article><span class="label">04 / Handoff</span><h2>Carry the plan</h2><p>Send a focused dashboard to a phone by QR, then save or share its self-contained offline HTML copy.</p></article>
       </section>
 
       <section class="downloads" id="downloads" aria-labelledby="downloads-title">
@@ -136,7 +155,7 @@
             <span class="label">Native desktop</span>
             <h2 id="downloads-title">Choose your system.</h2>
           </div>
-          <p>TaskRunner runs locally on Windows and Linux. The application source stays private; only the approved release packages are public.</p>
+          <p>TaskRunner v0.9.5 Beta is available for Windows and Linux. Choose the installer format that fits your system.</p>
         </div>
         <div class="platforms">
           <article class="platform">
@@ -144,8 +163,8 @@
             <h3>Windows installer</h3>
             <p>Use the standard setup program. The current public beta is unsigned, so Windows may show an unknown-publisher warning.</p>
             <div class="platform-actions">
-              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_x64-setup.exe">Download .exe</a>
-              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_x64_en-US.msi">Download .msi</a>
+              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_x64-setup.exe">Download .exe</a>
+              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_x64_en-US.msi">Download .msi</a>
             </div>
             <details class="install">
               <summary>Windows installation</summary>
@@ -159,17 +178,17 @@
             <h3>AppImage or Debian</h3>
             <p>Use the AppImage on most distributions, or the native Debian package on Ubuntu, Debian, Mint, Pop!_OS, and related systems.</p>
             <div class="platform-actions">
-              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_amd64.AppImage">Download AppImage</a>
-              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.4/TaskRunner_0.9.4_amd64.deb">Download .deb</a>
+              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_amd64.AppImage">Download AppImage</a>
+              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_amd64.deb">Download .deb</a>
             </div>
             <details class="install">
               <summary>Linux installation</summary>
               <div class="commands">
                 <span>AppImage:</span>
-                <code>chmod +x TaskRunner_0.9.4_amd64.AppImage</code>
-                <code>./TaskRunner_0.9.4_amd64.AppImage</code>
+                <code>chmod +x TaskRunner_0.9.5_amd64.AppImage</code>
+                <code>./TaskRunner_0.9.5_amd64.AppImage</code>
                 <span>Debian / Ubuntu:</span>
-                <code>sudo apt install ./TaskRunner_0.9.4_amd64.deb</code>
+                <code>sudo apt install ./TaskRunner_0.9.5_amd64.deb</code>
               </div>
             </details>
           </article>
@@ -208,7 +227,7 @@
 
     <footer>
       <span>© 2026 TaskRunner / Public beta / Source private</span>
-      <span><a href="https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.4">Release notes</a> · <a href="https://github.com/RunnerLabs/task-runner">GitHub</a></span>
+      <span><a href="https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.5">Release notes</a> · <a href="https://github.com/RunnerLabs/task-runner">GitHub</a></span>
     </footer>
   </div>
 </body>
