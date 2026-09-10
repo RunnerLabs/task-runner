@@ -25,6 +25,7 @@
     .button.primary{background:var(--black);color:var(--green)}
     header .button.primary{background:var(--green);color:var(--black)}
     .button:hover{background:var(--white);border-color:var(--white);color:var(--black)}
+    .button.disabled{opacity:.55;cursor:not-allowed;pointer-events:none}
     main{padding:34px 20px 18px}
     .hero{padding:32px 42px;border:1px solid var(--black);background:var(--panel)}
     .terminal-row{display:flex;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--black);color:var(--black);font-size:12px;text-transform:uppercase}
@@ -115,7 +116,7 @@
 
     <main id="top">
       <section class="hero">
-        <div class="terminal-row"><span>$ taskrunner --local</span><span class="status">v0.9.5.1 beta available</span></div>
+        <div class="terminal-row"><span>$ taskrunner --local</span><span class="status">v0.9.6-1 Windows beta available</span></div>
         <img class="ascii-mark" src="https://runnerlabs.github.io/task-runner/assets/taskrunner-ascii.png" alt="TaskRunner line-art wordmark">
         <div class="hero-grid">
           <div>
@@ -155,16 +156,16 @@
             <span class="label">Native desktop</span>
             <h2 id="downloads-title">Choose your system.</h2>
           </div>
-          <p>TaskRunner v0.9.5.1 Beta is available for Windows and Linux. Choose the installer format that fits your system.</p>
+          <p>TaskRunner v0.9.6-1 Beta is available for Windows. Linux packages are being prepared separately.</p>
         </div>
         <div class="platforms">
           <article class="platform">
             <span class="label">Windows 10 / 11 · x64</span>
             <h3>Windows installer</h3>
-            <p>Use the standard setup program. The current public beta is unsigned, so Windows may show an unknown-publisher warning.</p>
+            <p>Use the standard setup program. This public beta is unsigned, so Windows may show a publisher or antivirus warning. Verify the checksum before installing.</p>
             <div class="platform-actions">
-              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5.1/TaskRunner_0.9.5.1_x64-setup.exe">Download .exe</a>
-              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5.1/TaskRunner_0.9.5.1_x64_en-US.msi">Download .msi</a>
+              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64-setup.exe">Download .exe</a>
+              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64_en-US.msi">Download .msi</a>
             </div>
             <details class="install">
               <summary>Windows installation</summary>
@@ -176,19 +177,19 @@
           <article class="platform linux">
             <span class="label">Linux · x86_64</span>
             <h3>AppImage or Debian</h3>
-            <p>Use the AppImage on most distributions, or the native Debian package on Ubuntu, Debian, Mint, Pop!_OS, and related systems.</p>
+            <p>Linux packaging is planned for a later release. The current v0.9.6-1 release is Windows-only.</p>
             <div class="platform-actions">
-              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5.1/TaskRunner_0.9.5.1_amd64.AppImage">Download AppImage</a>
-              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5.1/TaskRunner_0.9.5.1_amd64.deb">Download .deb</a>
+              <a class="button primary disabled" aria-disabled="true" href="#linux-installation">AppImage coming later</a>
+              <a class="button disabled" aria-disabled="true" href="#linux-installation">.deb coming later</a>
             </div>
             <details class="install">
               <summary>Linux installation</summary>
               <div class="commands">
                 <span>AppImage:</span>
-                <code>chmod +x TaskRunner_0.9.5_amd64.AppImage</code>
-                <code>./TaskRunner_0.9.5_amd64.AppImage</code>
+                <code>chmod +x TaskRunner_&lt;version&gt;_amd64.AppImage</code>
+                <code>./TaskRunner_&lt;version&gt;_amd64.AppImage</code>
                 <span>Debian / Ubuntu:</span>
-                <code>sudo apt install ./TaskRunner_0.9.5_amd64.deb</code>
+                <code>sudo apt install ./TaskRunner_&lt;version&gt;_amd64.deb</code>
               </div>
             </details>
           </article>
@@ -227,7 +228,7 @@
 
     <footer>
       <span>© 2026 TaskRunner / Public beta / Source private</span>
-      <span><a href="https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.5.1">Release notes</a> · <a href="https://github.com/RunnerLabs/task-runner">GitHub</a></span>
+      <span><a href="https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.6-1">Release notes</a> · <a href="https://github.com/RunnerLabs/task-runner">GitHub</a></span>
     </footer>
   </div>
 </body>

@@ -1,13 +1,13 @@
 # TaskRunner
 
-**Plan faster. Start on time. Stay local.** TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. Native release packages are available for Windows and Linux x64.
+**Plan faster. Start on time. Stay local.** TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. The current native release is for Windows x64; Linux packaging is planned separately.
 
 [Visit the TaskRunner website](https://runnerlabs.github.io/task-runner/) or choose a release:
 
-- [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_x64-setup.exe)
-- [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_x64_en-US.msi)
-- [Linux x64 AppImage](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_amd64.AppImage)
-- [Linux x64 Debian package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.5/TaskRunner_0.9.5_amd64.deb)
+- [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64-setup.exe)
+- [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64_en-US.msi)
+- [SHA-256 checksums](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_SHA256SUMS.txt)
+- [Windows release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.6-1)
 
 ## About this repository
 
@@ -17,17 +17,17 @@ Windows and Linux packages are attached to GitHub Releases and are never committ
 
 ## Linux installation
 
-AppImage:
+Linux packages will be published in a later release.
 
 ```bash
-chmod +x TaskRunner_0.9.5_amd64.AppImage
-./TaskRunner_0.9.5_amd64.AppImage
+chmod +x TaskRunner_<version>_amd64.AppImage
+./TaskRunner_<version>_amd64.AppImage
 ```
 
 Debian, Ubuntu, Linux Mint, Pop!_OS, and related distributions:
 
 ```bash
-sudo apt install ./TaskRunner_0.9.5_amd64.deb
+sudo apt install ./TaskRunner_<version>_amd64.deb
 ```
 
 To use local rooms, keep the host app open, connect devices to the same local network, and allow TaskRunner through the Linux firewall if prompted.
@@ -43,4 +43,4 @@ To use local rooms, keep the host app open, connect devices to the same local ne
 
 ## Beta notice
 
-The current Windows and Linux beta packages are unsigned. Windows SmartScreen may display an unknown-publisher warning. Linux desktop environments may ask you to confirm that the AppImage is executable. Only download TaskRunner from this repository's official Releases page.
+The current Windows beta packages are unsigned. Windows SmartScreen or antivirus software may display a publisher warning; verify the published SHA-256 checksum before installing. Only download TaskRunner from this repository's official Releases page.
