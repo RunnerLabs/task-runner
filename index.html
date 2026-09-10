@@ -1,269 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#080a08">
-  <meta name="description" content="Plan faster, start on time, and stay local with TaskRunner: batch-create tasks, schedule automatic starts, manage recurring work, share LAN rooms, and hand dashboards to a phone by QR.">
-  <title>TaskRunner - Plan Faster. Start on Time. Stay Local.</title>
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/taskrunner-icon-192.png">
-  <link rel="apple-touch-icon" href="assets/taskrunner-icon-192.png">
-  <style>
-    :root{--green:#1cc825;--brand-green:#14cf21;--black:#080a08;--panel:#1cc825;--line:#080a08;--white:#f4f7f4;--muted:#173619}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--green);color:var(--black);font:14px/1.45 "Courier New",monospace}
-    a{color:inherit}
-    .shell{width:min(1300px,calc(100% - 32px));margin:16px auto;background:var(--green);border:1px solid var(--black)}
-    header{height:78px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:var(--black);color:var(--white);border-bottom:1px solid var(--black)}
-    .brand{font-family:"Courier New",monospace;font-size:16px;font-weight:700;text-decoration:none;letter-spacing:0}
-    .brand span,.nav a:hover{color:var(--green)}
-    .nav{display:flex;align-items:center;gap:28px}
-    .nav a{text-decoration:none;font-size:12px;text-transform:uppercase}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border:1px solid var(--black);background:transparent;color:var(--black);font-weight:700;text-decoration:none;text-transform:uppercase}
-    header .button{border-color:var(--green);color:var(--green)}
-    .button.primary{background:var(--black);color:var(--green)}
-    header .button.primary{background:var(--green);color:var(--black)}
-    .button:hover{background:var(--white);border-color:var(--white);color:var(--black)}
-    .button.disabled{opacity:.55;cursor:not-allowed;pointer-events:none}
-    main{padding:34px 20px 18px}
-    .hero{padding:32px 42px;border:1px solid var(--black);background:var(--panel)}
-    .terminal-row{display:flex;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--black);color:var(--black);font-size:12px;text-transform:uppercase}
-    .status::before{content:"●";margin-right:9px}
-    .brand-lockup{margin:24px 0 8px;padding:28px 18px 25px;background:var(--brand-green);color:#050705;text-align:center;border:1px solid #050705}
-    .brand-lockup span{display:block;font-size:clamp(14px,1.7vw,22px);line-height:1.1;letter-spacing:.24em}
-    .brand-lockup strong{display:block;margin:10px 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:clamp(42px,8.8vw,112px);font-weight:900;line-height:.86;letter-spacing:-.065em}
-    .ascii-mark{display:block;width:auto;height:clamp(90px,11vw,145px);max-width:100%;margin:24px auto 8px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.5)}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:45px;align-items:end;padding-top:36px}
-    h1{max-width:840px;margin:0;font-family:Futura,"Avenir Next","Century Gothic",Arial,sans-serif;font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.86;letter-spacing:-.045em}
-    .lead{max-width:800px;margin:25px 0 0;color:var(--black);font-size:17px}
-    .hero-actions{display:grid;gap:12px}
-    .hero-runner-mark{height:122px;display:grid;place-items:center;margin-bottom:2px;color:var(--black)}
-    .hero-runner-mark svg{width:138px;height:112px;overflow:visible;filter:drop-shadow(0 8px 0 rgba(8,10,8,.08))}
-    .hero-runner-mark .runner-silhouette{fill:currentColor;stroke:none}
-    .hero-runner-mark .runner-ghost-far{opacity:.18}
-    .hero-runner-mark .runner-ghost-near{opacity:.38}
-    .hero-runner-mark .runner-main{opacity:1}
-    .strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-top:0}
-    .strip article{min-height:142px;padding:22px;border-right:1px solid var(--line)}
-    .strip article:last-child{border-right:0}
-    .label{color:var(--black);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-    h2,h3,p{margin-top:0}
-    .strip h2{margin:8px 0 8px;font:700 25px/1 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
-    .strip p{margin-bottom:0;color:var(--muted)}
-    .downloads{margin:34px 22px 0}
-    .downloads-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:14px}
-    .downloads-head h2{margin:7px 0 0;font:700 clamp(32px,4vw,52px)/.92 Futura,"Avenir Next","Century Gothic",Arial,sans-serif;letter-spacing:-.035em}
-    .downloads-head p{max-width:560px;margin:0;color:var(--muted)}
-    .platforms{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--black)}
-    .platform{padding:24px;border-right:1px solid var(--black)}
-    .platform:last-child{border-right:0}
-    .platform.linux{background:var(--black);color:var(--white)}
-    .platform.linux .label{color:var(--green)}
-    .platform h3{margin:8px 0 8px;font:700 28px/1 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
-    .platform p{min-height:42px;margin-bottom:18px}
-    .platform.linux p{color:#b8c5ba}
-    .platform-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .platform.linux .button{border-color:var(--green);color:var(--green)}
-    .platform.linux .button.primary{background:var(--green);color:var(--black)}
-    details.install{margin-top:18px;border-top:1px solid currentColor;padding-top:14px}
-    details.install summary{cursor:pointer;font-weight:700;text-transform:uppercase}
-    .commands{display:grid;gap:8px;margin-top:12px}
-    .commands code{display:block;overflow:auto;padding:9px 11px;background:rgba(255,255,255,.08);font:12px/1.35 "Courier New",monospace;white-space:nowrap}
-    .platform:not(.linux) .commands code{background:rgba(0,0,0,.08)}
-    .updates{margin:34px 22px 0;padding:28px;border:1px solid var(--black);background:#050705;color:var(--white)}
-    .updates .label{color:var(--green)}
-    .updates-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}
-    .updates-head h2{margin:8px 0 0;color:var(--green);font:700 clamp(34px,4vw,56px)/.92 Futura,"Avenir Next","Century Gothic",Arial,sans-serif;letter-spacing:-.04em}
-    .updates-head p{max-width:500px;margin:0;color:#b8c5ba}
-    .update-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #315f35}
-    .update-card{padding:19px;border-right:1px solid #315f35}
-    .update-card:last-child{border-right:0}
-    .update-card h3{margin:0 0 8px;color:var(--green);font:700 20px/1.05 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
-    .update-card p{margin:0;color:#d0d9d1;font-size:12px}
-    details.fixes{margin-top:18px;border-top:1px solid #315f35;padding-top:14px}
-    details.fixes summary{cursor:pointer;color:var(--green);font-weight:700;text-transform:uppercase}
-    .fix-list{margin:13px 0 0;padding-left:20px;color:#d0d9d1;font-size:12px}
-    .known-issue{margin:16px 0 0;padding:12px 14px;border-left:3px solid var(--green);background:#102113;color:#d0d9d1;font-size:12px}
-    .handoff{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.6fr);gap:30px;margin:34px 22px 0;padding:30px;border:1px solid var(--green);background:var(--black);color:var(--white)}
-    .handoff .label{color:var(--green)}
-    .handoff h2{margin:9px 0 12px;font:700 clamp(34px,5vw,62px)/.92 Futura,"Avenir Next","Century Gothic",Arial,sans-serif;letter-spacing:-.04em}
-    .handoff-intro{margin:0;color:#b8c5ba}
-    .handoff-steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #315f35}
-    .handoff-steps article{padding:20px;border-right:1px solid #315f35}
-    .handoff-steps article:last-child{border-right:0}
-    .handoff-steps strong{display:block;margin:8px 0 7px;color:var(--green);font:700 19px/1.05 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
-    .handoff-steps p{margin:0;color:#9ca9a0;font-size:12px}
-    .guide{display:grid;grid-template-columns:300px 1fr;gap:28px;padding:34px 22px 24px}
-    .guide h2{margin:8px 0 12px;font:700 38px/.95 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
-    .guide-intro{color:var(--muted)}
-    .tools{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
-    .tool{padding:17px 19px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .tool:nth-child(2n){border-right:0}
-    .tool:nth-last-child(-n+2){border-bottom:0}
-    .tool h3{margin:5px 0 5px;font-size:15px;color:var(--black)}
-    .tool p{margin:0;color:var(--muted);font-size:12px}
-    .when{color:var(--black);font-weight:700}
-    .checkline{margin:0 22px 28px;padding:15px 18px;border-left:3px solid var(--green);background:var(--black);color:var(--green)}
-    .checkline strong{color:var(--white)}
-    footer{min-height:64px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:var(--black);border-top:1px solid var(--black);color:var(--green);font-size:11px}
-    footer a{text-decoration:none;color:var(--green)}
-    @media(max-width:800px){
-      .shell{width:100%;margin:0;border:0}.nav a:not(.button){display:none}header{height:66px}
-      .ascii-mark{width:100%;height:auto;margin:22px 0 4px}
-      main{padding:18px 12px}.hero{padding:24px}.hero-grid{grid-template-columns:1fr;gap:26px}
-      .hero-actions{grid-template-columns:1fr 1fr}.hero-runner-mark{grid-column:1/-1;height:96px}.hero-runner-mark svg{width:112px;height:90px}.strip{grid-template-columns:1fr 1fr}.strip article{border-bottom:1px solid var(--line);min-height:auto}.strip article:nth-child(2n){border-right:0}.strip article:nth-last-child(-n+2){border-bottom:0}
-      .downloads{margin:26px 10px 0}.downloads-head{align-items:flex-start;flex-direction:column}.platforms{grid-template-columns:1fr}.platform{border-right:0;border-bottom:1px solid var(--black)}.platform:last-child{border-bottom:0}
-      .updates{margin:26px 10px 0;padding:22px}.updates-head{align-items:flex-start;flex-direction:column}.update-grid{grid-template-columns:1fr}.update-card{border-right:0;border-bottom:1px solid #315f35}.update-card:last-child{border-bottom:0}
-      .handoff{grid-template-columns:1fr;margin:26px 10px 0;padding:24px}.handoff-steps{grid-template-columns:1fr}.handoff-steps article{border-right:0;border-bottom:1px solid #315f35}.handoff-steps article:last-child{border-bottom:0}
-      .guide{grid-template-columns:1fr;padding:28px 10px 20px}.tools{grid-template-columns:1fr}.tool,.tool:nth-child(2n),.tool:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.tool:last-child{border-bottom:0}
-      footer{align-items:flex-start;gap:12px;flex-direction:column;padding:20px 22px}.terminal-row{flex-direction:column}.status{display:none}
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Runner — Plan faster. Start on time. Stay local.</title>
+  <meta name="description" content="Plan, schedule, and hand off tasks on your LAN. No cloud account." />
+  <link rel="stylesheet" href="landing.css" />
 </head>
-<body>
-  <div class="shell">
-    <header>
-      <a class="brand" href="#top"><span>$</span> TaskRunner focus</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#mobile">Phone handoff</a>
-        <a href="#lan">Nearby sharing</a>
-        <a href="#updates">What’s new</a>
-        <a class="button primary" href="#downloads">Download</a>
-      </nav>
-    </header>
+<body class="tr-landing">
+  <header class="nav">
+    <div class="nav-brand">
+      <a class="name" href="./">Task Runner</a>
+      <span class="ver">v0.9.6-1</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a class="nav-cta" href="#download">Download</a>
+    </nav>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="terminal-row"><span>$ taskrunner --local</span><span class="status">v0.9.6-1 Windows beta available</span></div>
-        <div class="brand-lockup" aria-label="Made in TaskRunner, local first"><span>MADE IN</span><strong>TASK RUNNER</strong><span>LOCAL FIRST</span></div>
-        <img class="ascii-mark" src="https://runnerlabs.github.io/task-runner/assets/taskrunner-ascii.png" alt="TaskRunner line-art wordmark">
-        <div class="hero-grid">
-          <div>
-            <h1>Plan faster.<br>Start on time.<br>Stay local.</h1>
-            <p class="lead">Create one task or ten, schedule work to start automatically, manage recurring plans, and run focused timers. Share private LAN rooms or hand a self-contained dashboard to a phone by QR - no cloud account required.</p>
-          </div>
-          <div class="hero-actions">
-            <div class="hero-runner-mark" aria-hidden="true">
-              <svg viewBox="-125 -15 890 920" focusable="false">
-                <defs>
-                  <g id="hero-runner-source">
-                    <path d="M696.504,880.942C689.22,880.553 689.206,880.562 609.621,854.125C586.267,846.366 587.084,842.787 569.161,798.637C564.613,787.432 513.586,661.737 512.255,658.605C510.661,654.851 466.287,616.466 437.249,589.778C433.319,586.167 389.14,545.565 387.615,545.201C385.675,544.739 382.986,549.762 353.061,594.204C293.488,682.675 293.949,682.981 288.042,690.125C283.142,696.052 267.362,707.791 247.796,694.088C239.508,688.283 107.084,591.907 94.858,583.008C80.204,572.344 19.583,547.557 9.692,537.32C-10.058,516.877 11.756,477.467 44.42,492.664C55.757,497.939 110.675,525.749 116.42,528.658C126.997,534.014 126.555,534.723 236.771,615.128C257.336,630.13 257.521,631.447 259.293,630.197C260.047,629.665 259.936,629.534 302.904,565.773C345.566,502.465 348.328,499.962 349.258,494.469C350.462,487.36 408.004,285.486 387.674,270.387C395.296,252.094 210.382,449.251 201.714,444.868C187.152,437.504 177.108,426.766 186.179,415.418C227.767,363.387 334.162,237.152 352.004,218.856C380.239,189.904 379.165,191.82 407.241,175.955C409.047,174.935 482.186,186.76 495.7,210.387C502.405,222.108 508.544,224.834 528.923,247.091C532.782,251.304 532.904,251.125 578.568,298.433C582.116,302.108 581.682,297.871 585.606,294.589C624.872,261.75 715.401,163.309 724.424,166.93C750.165,177.259 746.598,190.293 729.493,211.732C729.366,211.892 604.924,341.146 604.383,341.732C590.376,356.877 570.812,356.459 556.93,342.632C528.475,314.291 491.437,298.484 485.66,292.345C484.339,290.941 482.916,288.588 481.764,292.586C477.81,306.316 420.851,488.808 421.3,490.56C421.675,492.025 518.624,578.656 541.477,599.526C561.151,617.493 562.773,616.674 569.943,634.323C629.778,781.597 629.489,781.629 634.946,794.321C636.289,797.443 636.967,797.21 674.455,809.632C709.075,821.102 721.199,822.418 726.56,843.487C728.288,850.278 727.532,878.382 696.504,880.942Z"/>
-                    <path d="M509.517,3.038C601.156,6.957 629.522,122.648 551.27,169.109C499.572,199.803 415.149,165.028 419.82,84.519C421.85,49.537 451.715,3.121 509.517,3.038Z"/>
-                  </g>
-                </defs>
-                <use href="#hero-runner-source" class="runner-silhouette runner-ghost-far" transform="translate(-112 0)"/>
-                <use href="#hero-runner-source" class="runner-silhouette runner-ghost-near" transform="translate(-56 0)"/>
-                <use href="#hero-runner-source" class="runner-silhouette runner-main"/>
-              </svg>
-            </div>
-            <a class="button primary" href="#downloads">Download current beta</a>
-            <a class="button" href="#mobile">See phone handoff</a>
+  <main>
+    <section class="hero-card" aria-label="Hero">
+      <div class="hero-bar">
+        <code class="cli">taskrunner --local</code>
+        <span class="status"><span class="dot" aria-hidden="true"></span> Windows beta</span>
+      </div>
+      <div class="hero-body">
+        <div class="hero-side">
+          <ul class="stamps" aria-label="Product stamps">
+            <li>Local.</li>
+            <li>Lan.</li>
+            <li>Yours.</li>
+          </ul>
+          <div class="made-in" aria-hidden="true">
+            <span>Made in</span>
+            <strong>Task Runner</strong>
+            <span>Local first</span>
           </div>
         </div>
-      </section>
-
-      <section class="updates" id="updates" aria-labelledby="updates-title">
-        <div class="updates-head">
-          <div><span class="label">v0.9.6-1 · WINDOWS BETA</span><h2 id="updates-title">What’s new.</h2></div>
-          <p>Local-first planning, Pocket reliability, and a friendlier TaskRunner experience are now included in the current public build.</p>
-        </div>
-        <div class="update-grid">
-          <article class="update-card"><h3>Local AI planner</h3><p>Connect Ollama, LM Studio, or hosted OpenAI-compatible models, save model instructions, review generated task cards, and add only the tasks you approve.</p></article>
-          <article class="update-card"><h3>Pocket offline work</h3><p>Go offline, run timers, complete or restore tasks, add notes, create tasks, and sync queued changes exactly once when the desktop returns.</p></article>
-          <article class="update-card"><h3>Mochi + themes</h3><p>Mochi is the first pixel companion. Coach naming, clearer controls, and eight Pocket themes make the experience easier to personalize.</p></article>
-        </div>
-        <details class="fixes"><summary>Bug fixes and reliability</summary><ul class="fix-list"><li>Delayed host listener checks no longer turn a working LAN host into a false startup failure.</li><li>Repeated host-start clicks are suppressed while the listener is coming up.</li><li>Pocket retries reuse action IDs, preventing duplicate completions or task creation after dropped acknowledgments.</li><li>Today, Inbox, Active, and Done remain distinct as tasks move through their lifecycle.</li><li>Windows installer metadata and published download links are aligned at v0.9.6-1.</li></ul></details>
-        <p class="known-issue"><strong>Next fix:</strong> Pocket task creation cancel behavior is being hardened so every cancel path closes without creating a task.</p>
-      </section>
-
-      <section class="strip" aria-label="TaskRunner core features">
-        <article><span class="label">01 / Batch</span><h2>Build faster</h2><p>Create up to ten task drafts at once and copy selected details into new or existing task boxes.</p></article>
-        <article><span class="label">02 / Schedule</span><h2>Start on time</h2><p>Set fixed start times, organize recurring calendar work, and let desktop or mobile begin automatically.</p></article>
-        <article><span class="label">03 / Share</span><h2>Connect nearby</h2><p>Share task dashboards between computers on the same Wi-Fi or wired network without a cloud account.</p></article>
-        <article><span class="label">04 / Handoff</span><h2>Carry the plan</h2><p>Send a focused dashboard to a phone by QR, then save or share its self-contained offline HTML copy.</p></article>
-      </section>
-
-      <section class="downloads" id="downloads" aria-labelledby="downloads-title">
-        <div class="downloads-head">
-          <div>
-            <span class="label">Native desktop</span>
-            <h2 id="downloads-title">Choose your system.</h2>
+        <div class="hero-copy">
+          <h1>Plan faster. Start on time. Stay local.</h1>
+          <p class="lede">Create tasks, schedule them, share on your LAN, hand off to a phone — no cloud account.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-ink" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64-setup.exe">Download Task Runner · Windows v0.9.6-1</a>
+            <a class="btn btn-outline" href="https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.6-1">Checksum</a>
           </div>
-          <p>TaskRunner v0.9.6-1 Beta is available for Windows. Linux packages are being prepared separately.</p>
         </div>
-        <div class="platforms">
-          <article class="platform">
-            <span class="label">Windows 10 / 11 · x64</span>
-            <h3>Windows installer</h3>
-            <p>Use the standard setup program. This public beta is unsigned, so Windows may show a publisher or antivirus warning. Verify the checksum before installing.</p>
-            <div class="platform-actions">
-              <a class="button primary" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64-setup.exe">Download .exe</a>
-              <a class="button" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64_en-US.msi">Download .msi</a>
-            </div>
-            <details class="install">
-              <summary>Windows installation</summary>
-              <div class="commands">
-                <span>Open the downloaded setup file and follow the installer. Allow TaskRunner through Windows Firewall when you want to host LAN rooms.</span>
-              </div>
-            </details>
-          </article>
-          <article class="platform linux">
-            <span class="label">Linux · x86_64</span>
-            <h3>AppImage or Debian</h3>
-            <p>Linux packaging is planned for a later release. The current v0.9.6-1 release is Windows-only.</p>
-            <div class="platform-actions">
-              <a class="button primary disabled" aria-disabled="true" href="#linux-installation">AppImage coming later</a>
-              <a class="button disabled" aria-disabled="true" href="#linux-installation">.deb coming later</a>
-            </div>
-            <details class="install">
-              <summary>Linux installation</summary>
-              <div class="commands">
-                <span>AppImage:</span>
-                <code>chmod +x TaskRunner_&lt;version&gt;_amd64.AppImage</code>
-                <code>./TaskRunner_&lt;version&gt;_amd64.AppImage</code>
-                <span>Debian / Ubuntu:</span>
-                <code>sudo apt install ./TaskRunner_&lt;version&gt;_amd64.deb</code>
-              </div>
-            </details>
-          </article>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="handoff" id="mobile" aria-labelledby="mobile-title">
-        <div>
-          <span class="label">Phone handoff</span>
-          <h2 id="mobile-title">Scan once. Keep moving.</h2>
-          <p class="handoff-intro">An administrator chooses a person and their tasks. TaskRunner turns that assignment into a short-lived QR link, while the phone keeps the received dashboard locally.</p>
-        </div>
-        <div class="handoff-steps">
-          <article><span class="label">01</span><strong>Generate</strong><p>Create a private QR for one person’s task packet from the desktop dashboard.</p></article>
-          <article><span class="label">02</span><strong>Scan</strong><p>Open the mobile dashboard in Chrome or Safari and start working immediately.</p></article>
-          <article><span class="label">03</span><strong>Save or send</strong><p>Keep an offline HTML recovery copy or share the complete dashboard by text or email.</p></article>
-        </div>
-      </section>
+    <section class="pillars" id="features" aria-label="Features">
+      <article class="pillar">
+        <p class="label">01 Batch</p>
+        <p>Create up to ten drafts at once.</p>
+      </article>
+      <article class="pillar">
+        <p class="label">02 Schedule</p>
+        <p>Fixed starts and recurring plans, on time.</p>
+      </article>
+      <article class="pillar">
+        <p class="label">03 Lan</p>
+        <p>Private rooms on the same Wi‑Fi. No cloud account.</p>
+      </article>
+      <article class="pillar">
+        <p class="label">04 Qr</p>
+        <p>Hand a self-contained offline dashboard to a phone.</p>
+      </article>
+    </section>
 
-      <section class="guide" id="lan">
-        <div>
-          <span class="label">Network help</span>
-          <h2>Know what to check.</h2>
-          <p class="guide-intro">Open Signal Lab when a room cannot be found, a peer will not join, or syncing feels slow.</p>
-        </div>
-        <div class="tools">
-          <article class="tool"><span class="when">CAN'T FIND THE ROOM</span><h3>Discovery</h3><p>Confirm both computers are on the same router and the host is still running.</p></article>
-          <article class="tool"><span class="when">BEFORE JOINING</span><h3>Connection Check</h3><p>Confirm the host address and room details before opening the full room.</p></article>
-          <article class="tool"><span class="when">SYNC FEELS SLOW</span><h3>Network Health</h3><p>Check Discovery, Host, Peers, and Sync to see which part needs attention.</p></article>
-          <article class="tool"><span class="when">STILL NOT WORKING</span><h3>Diagnostics</h3><p>Run the checks and copy a safe report without including the room password.</p></article>
-        </div>
-      </section>
+    <section class="download" id="download" aria-label="Download">
+      <h2 class="section-title">Download</h2>
+      <p class="section-sub">v0.9.6-1 Beta · Windows ready. Linux packages are being prepared.</p>
+      <div class="dl-grid">
+        <article class="dl-card dl-windows">
+          <p class="dl-meta">Windows 10 / 11 · x64</p>
+          <h3>Download Task Runner</h3>
+          <p class="dl-note">Unsigned Windows beta may warn — that's the publisher notice, not a cloud login.</p>
+          <a class="btn btn-field" href="https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64-setup.exe">Get the beta →</a>
+        </article>
+        <article class="dl-card dl-linux">
+          <p class="dl-meta">Linux · x86_64</p>
+          <h3>Coming next</h3>
+          <p class="dl-note">Not in v0.9.6-1. AppImage / Debian planned.</p>
+          <a class="text-link" href="https://github.com/RunnerLabs/task-runner/releases">Watch for release →</a>
+        </article>
+      </div>
+    </section>
 
-      <p class="checkline"><strong>Fast connection check:</strong> keep the host open → use the same local network → allow TaskRunner through the computer's firewall → run Connection Check.</p>
-    </main>
+    <section class="trust" aria-label="Trust">
+      <h2>No cloud account. Work stays on your machines.</h2>
+      <p>LAN rooms stay on your network. No account wall.</p>
+    </section>
+  </main>
 
-    <footer>
-      <span>© 2026 TaskRunner / Public beta / Source private</span>
-      <span><a href="https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.6-1">Release notes</a> · <a href="https://github.com/RunnerLabs/task-runner">GitHub</a></span>
-    </footer>
-  </div>
+  <footer class="foot">
+    <p><a href="mailto:taskmaster@trunner.net">taskmaster@trunner.net</a> · <a href="https://trunner.net/">Back to hub</a></p>
+  </footer>
 </body>
 </html>
