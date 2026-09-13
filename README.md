@@ -4,22 +4,20 @@
 
 [Visit the TaskRunner website](https://runnerlabs.github.io/task-runner/) or choose a release:
 
-- [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64-setup.exe)
-- [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_x64_en-US.msi)
-- [SHA-256 checksums](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.6-1/TaskRunner_0.9.6-1_SHA256SUMS.txt)
-- [Windows release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.6-1)
+- [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_x64-setup.exe)
+- [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_x64_en-US.msi)
+- [SHA-256 checksums](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_SHA256SUMS.txt)
+- [Windows release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.7)
 
-## Current release highlights (v0.9.6-1)
+## Current release highlights (v0.9.7)
 
-- Local AI planner profiles for Ollama, LM Studio, and hosted OpenAI-compatible endpoints, with saved instructions and review-before-add task cards.
-- Pocket offline mode with timers, completion and restore actions, notes, task creation, and exactly-once encrypted sync when the desktop reconnects.
-- Mochi as the first pixel companion, coach renaming, clearer controls, and eight Pocket themes.
-- Host diagnostics now tolerate delayed listener startup, repeated start clicks are suppressed, and Pocket retries cannot duplicate queued actions.
-- Task views stay distinct as work moves between Today, Inbox, Active, and Done. Windows installer metadata and download links are aligned at v0.9.6-1.
+- Local AI planner discovery, review-before-add cards, faithful optional fields, and exportable generation diagnostics.
+- Multi-device Pocket rooms with synced task sounds and volume, offline actions, and encrypted reconnect queues.
+- Byte, Ember, Mittens, Nova, and Axolotl companions, including independent outside-coach controls.
+- Wallpaper import and fit controls, transparent acrylic styling, refreshed themes, and a themed notepad.
+- Calendar Clear schedule and Done controls, clearer alarm selection, modern typography, and stronger navigation contrast.
 
-Known follow-up: Pocket task creation cancel behavior is being hardened so cancel always closes the flow without creating a task.
-
-For the visual changelog, see the [What’s new section on the website](https://runnerlabs.github.io/task-runner/#updates) and the [full release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.6-1).
+For the visual changelog, see the [What’s new section on the website](https://runnerlabs.github.io/task-runner/#updates) and the [full release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.7).
 
 ## About this repository
 
