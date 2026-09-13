@@ -1,6 +1,6 @@
 # TaskRunner
 
-**Made in TaskRunner. Local first.** TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. The current native release is for Windows x64; Linux packaging is planned separately.
+TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. The current native release is for Windows x64; Linux packaging is planned separately.
 
 [Visit the TaskRunner website](https://runnerlabs.github.io/task-runner/) or choose a release:
 
