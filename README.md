@@ -1,11 +1,13 @@
 # TaskRunner
 
-TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. The current native release is for Windows x64; Linux packaging is planned separately.
+TaskRunner lets you create one task or ten, schedule automatic starts and recurring work, run focused timers, connect nearby computers through private LAN rooms, and hand self-contained dashboards to a phone by QR. The current native release supports Windows and Linux x64.
 
 [Visit the TaskRunner website](https://runnerlabs.github.io/task-runner/) or choose a release:
 
 - [Windows 10/11 x64 setup executable](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_x64-setup.exe)
 - [Windows 10/11 x64 MSI package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_x64_en-US.msi)
+- [Debian/Ubuntu x64 package](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_amd64.deb)
+- [Linux x64 AppImage](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_amd64.AppImage)
 - [SHA-256 checksums](https://github.com/RunnerLabs/task-runner/releases/download/v0.9.7/TaskRunner_0.9.7_SHA256SUMS.txt)
 - [Windows release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.7)
 
@@ -15,7 +17,7 @@ TaskRunner lets you create one task or ten, schedule automatic starts and recurr
 - Multi-device Pocket rooms with shareable session links, direct QR generation from task drafts, synced task sounds and volume, offline actions, and encrypted reconnect queues.
 - Byte, Ember, Mittens, Nova, and Axolotl companions, including independent outside-coach controls.
 - Wallpaper import and fit controls, transparent acrylic styling, refreshed themes, and a themed notepad.
-- Verified Windows Private/Public network controls, retained diagnostic logs, Calendar Clear schedule and Done controls, clearer alarm selection, modern typography, and stronger navigation contrast.
+- Verified Windows and Linux trusted/public network controls, retained diagnostic logs, Calendar Clear schedule and Done controls, clearer alarm selection, modern typography, and stronger navigation contrast.
 
 For the visual changelog, see the [What’s new section on the website](https://runnerlabs.github.io/task-runner/#updates) and the [full release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.7).
 
@@ -27,20 +29,20 @@ Windows and Linux packages are attached to GitHub Releases and are never committ
 
 ## Linux installation
 
-Linux packages will be published in a later release.
+Portable Linux x64:
 
 ```bash
-chmod +x TaskRunner_<version>_amd64.AppImage
-./TaskRunner_<version>_amd64.AppImage
+chmod +x TaskRunner_0.9.7_amd64.AppImage
+./TaskRunner_0.9.7_amd64.AppImage
 ```
 
 Debian, Ubuntu, Linux Mint, Pop!_OS, and related distributions:
 
 ```bash
-sudo apt install ./TaskRunner_<version>_amd64.deb
+sudo apt install ./TaskRunner_0.9.7_amd64.deb
 ```
 
-To use local rooms, keep the host app open, connect devices to the same local network, and allow TaskRunner through the Linux firewall if prompted.
+To use local rooms, keep the host app open and connect devices to the same trusted local network. TaskRunner's Linux trust controls use NetworkManager and request system authorization before changing the active connection's zone or TaskRunner-specific firewall rules.
 
 ## Website contents
 
