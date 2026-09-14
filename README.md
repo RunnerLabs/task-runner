@@ -12,10 +12,10 @@ TaskRunner lets you create one task or ten, schedule automatic starts and recurr
 ## Current release highlights (v0.9.7)
 
 - Local AI planner discovery, review-before-add cards, faithful optional fields, and exportable generation diagnostics.
-- Multi-device Pocket rooms with synced task sounds and volume, offline actions, and encrypted reconnect queues.
+- Multi-device Pocket rooms with shareable session links, direct QR generation from task drafts, synced task sounds and volume, offline actions, and encrypted reconnect queues.
 - Byte, Ember, Mittens, Nova, and Axolotl companions, including independent outside-coach controls.
 - Wallpaper import and fit controls, transparent acrylic styling, refreshed themes, and a themed notepad.
-- Calendar Clear schedule and Done controls, clearer alarm selection, modern typography, and stronger navigation contrast.
+- Verified Windows Private/Public network controls, retained diagnostic logs, Calendar Clear schedule and Done controls, clearer alarm selection, modern typography, and stronger navigation contrast.
 
 For the visual changelog, see the [What’s new section on the website](https://runnerlabs.github.io/task-runner/#updates) and the [full release notes](https://github.com/RunnerLabs/task-runner/releases/tag/v0.9.7).
 
